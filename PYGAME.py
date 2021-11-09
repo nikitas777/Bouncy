@@ -16,7 +16,7 @@ SCREEN_HEIGHT = 600
 
 #create game window
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pygame.display.set_caption('Jumpy')
+pygame.display.set_caption('Bouncy')
 
 #set frame rate
 clock = pygame.time.Clock()
@@ -192,6 +192,14 @@ enemy_group = pygame.sprite.Group()
 platform = Platform(SCREEN_WIDTH // 2 - 50, SCREEN_HEIGHT - 50, 100, False)
 platform_group.add(platform)
 
+#----------COINS---------------------------------------------------------
+
+coin_image=pygame.image.load("assets/coin_0.png")
+coins=[
+	pygame.Rect(100,150,SCREEN_WIDTH,SCREEN_HEIGHT)
+]
+#---------------------------------------------------------------------
+
 #game loop
 run = True
 while run:
@@ -243,6 +251,14 @@ while run:
 		platform_group.draw(screen)
 		enemy_group.draw(screen)
 		jumpy.draw()
+
+		#draw coins------------------------------------------------------
+
+		for c in coins:
+			screen.blit(coin_image,(c[0],c[1]))
+
+		#--------------------------------------------------------------------
+
 
 		#draw panel
 		draw_panel()
