@@ -24,7 +24,7 @@ FPS = 60
 
 #load music and sounds
 pygame.mixer.music.load('assets/music.mp3')
-pygame.mixer.music.set_volume(0.6)
+pygame.mixer.music.set_volume(0.1)
 pygame.mixer.music.play(-1, 0.0)
 jump_fx = pygame.mixer.Sound('assets/jump.mp3')
 jump_fx.set_volume(0.5)
