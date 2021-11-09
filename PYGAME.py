@@ -75,7 +75,7 @@ def draw_text(text, font, text_col, x, y):
 def draw_panel():
 	pygame.draw.rect(screen, PANEL, (0, 0, SCREEN_WIDTH, 30))
 	pygame.draw.line(screen, WHITE, (0, 30), (SCREEN_WIDTH, 30), 2)
-	draw_text('SCORE: ' + str(score), font_small, WHITE, 0, 0)
+	draw_text('POINTS: ' + str(score), font_small, WHITE, 0, 0)
 
 
 #function for drawing the background
@@ -264,8 +264,8 @@ while run:
 				pygame.draw.rect(screen, BLACK, (SCREEN_WIDTH - fade_counter, (y + 1) * 100, SCREEN_WIDTH, 100))
 		else:
 			draw_text('BAD LUCK!', font_big, WHITE, 130, 200)
-			draw_text('SCORE: ' + str(score), font_big, WHITE, 130, 250)
-			draw_text('   PRESS SPACE TO RETRY', font_big, WHITE, 40, 300)
+			draw_text('POINTS: ' + str(score), font_big, WHITE, 130, 250)
+			draw_text('     HIT SPACE TO RETRY', font_big, WHITE, 40, 300)
 			#update high score
 			if score > high_score:
 				high_score = score
