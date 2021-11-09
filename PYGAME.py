@@ -62,8 +62,8 @@ jumpy_image = pygame.image.load('assets/jump.png').convert_alpha()
 bg_image = pygame.image.load('assets/bg.png').convert_alpha()
 platform_image = pygame.image.load('assets/wood.png').convert_alpha()
 #bird spritesheet
-bird_sheet_img = pygame.image.load('assets/bird.png').convert_alpha()
-bird_sheet = SpriteSheet(bird_sheet_img)
+enemy_sheet_img = pygame.image.load('assets/enemy.png').convert_alpha()
+enemy_sheet = SpriteSheet(enemy_sheet_img)
 
 
 #function for outputting text onto the screen
@@ -225,7 +225,7 @@ while run:
 
 		#generate enemies
 		if len(enemy_group) == 0 and score > 1500:
-			enemy = Enemy(SCREEN_WIDTH, 100, bird_sheet, 1.5)
+			enemy = Enemy(SCREEN_WIDTH, 100, enemy_sheet, 1.5)
 			enemy_group.add(enemy)
 
 		#update enemies
