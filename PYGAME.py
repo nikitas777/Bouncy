@@ -57,7 +57,7 @@ font_small = pygame.font.SysFont('Lucida Sans', 20)
 font_big = pygame.font.SysFont('Lucida Sans', 24)
 
 #load images
-jumpy_image = pygame.image.load('assets/jump.png').convert_alpha()
+bouncy_image = pygame.image.load('assets/bouncy.png').convert_alpha()
 bg_image = pygame.image.load('assets/bg.png').convert_alpha()
 platform_image = pygame.image.load('assets/wood.png').convert_alpha()
 #bird spritesheet
@@ -85,7 +85,7 @@ def draw_bg(bg_scroll):
 #player class
 class Player():
 	def __init__(self, x, y):
-		self.image = pygame.transform.scale(jumpy_image, (45, 45))
+		self.image = pygame.transform.scale(bouncy_image, (45, 45))
 		self.width = 25
 		self.height = 40
 		self.rect = pygame.Rect(0, 0, self.width, self.height)
@@ -181,7 +181,7 @@ class Platform(pygame.sprite.Sprite):
 			self.kill()
 
 #player instance
-jumpy = Player(SCREEN_WIDTH // 2, SCREEN_HEIGHT - 150)
+bouncy = Player(SCREEN_WIDTH // 2, SCREEN_HEIGHT - 150)
 
 #create sprite groups
 platform_group = pygame.sprite.Group()
@@ -198,7 +198,7 @@ while run:
 	clock.tick(FPS)
 
 	if game_over == False:
-		scroll = jumpy.move()
+		scroll = bouncy.move()
 
 		#draw background
 		bg_scroll += scroll
@@ -241,18 +241,18 @@ while run:
 		#draw sprites
 		platform_group.draw(screen)
 		enemy_group.draw(screen)
-		jumpy.draw()
+		bouncy.draw()
 
 		#draw panel
 		draw_panel()
 
 		#check game over
-		if jumpy.rect.top > SCREEN_HEIGHT:
+		if bouncy.rect.top > SCREEN_HEIGHT:
 			game_over = True
 			death_fx.play()
 		#check for collision with enemies
-		if pygame.sprite.spritecollide(jumpy, enemy_group, False):
-			if pygame.sprite.spritecollide(jumpy, enemy_group, False, pygame.sprite.collide_mask):
+		if pygame.sprite.spritecollide(bouncy, enemy_group, False):
+			if pygame.sprite.spritecollide(bouncy, enemy_group, False, pygame.sprite.collide_mask):
 				game_over = True
 				death_fx.play()
 	else:
@@ -277,8 +277,8 @@ while run:
 				score = 0
 				scroll = 0
 				fade_counter = 0
-				#reposition jumpy
-				jumpy.rect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT - 150)
+				#reposition bouncy
+				bouncy.rect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT - 150)
 				#reset enemies
 				enemy_group.empty()
 				#reset platforms
