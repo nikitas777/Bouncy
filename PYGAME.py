@@ -13,7 +13,6 @@ pygame.init()
 #game window dimensions
 SCREEN_WIDTH = 400
 SCREEN_HEIGHT = 600
-
 #create game window
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption('Bouncy')
@@ -287,7 +286,6 @@ while run:
 				#create starting platform
 				platform = Platform(SCREEN_WIDTH // 2 - 50, SCREEN_HEIGHT - 50, 100, False)
 				platform_group.add(platform)
-
 
 	#event handler
 	for event in pygame.event.get():
